@@ -22,5 +22,5 @@ jobs:
       - name: misaligned fail
         run: bash .github/workflows/expectfail.sh "node misaligned.js"
 
-      - name: alerter fail
-        run: bash .github/workflows/expectfail.sh "node alerter.js"
+      - name: transmitter fail
+        run: bash .github/workflows/expectfail.sh "node transmitter.js"
