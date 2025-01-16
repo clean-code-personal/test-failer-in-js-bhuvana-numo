@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with: 
-          node-version: '14'
+          node-version: '18'
 
       - name: Install Dependncies
         run:  sudo npm install
@@ -23,4 +23,4 @@ jobs:
         run: bash .github/workflows/expectfail.sh "node misaligned.js"
 
       - name: transmitter fail
-        run: bash .github/workflows/expectfail.sh "node transmitter.js"
+        run: bash .github/workflows/expectfail.sh "node weatherreport.js"
