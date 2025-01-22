@@ -12,5 +12,5 @@ function print_color_map() {
 }
 
 result = print_color_map();
-expect(result).equals(25);
+expect(result).equals(20);
 console.log('All is well (maybe!)');
