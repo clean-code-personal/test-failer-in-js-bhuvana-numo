@@ -9,7 +9,7 @@ const weatherSensorStub = {
     humidity: () => 72,
     precipitation: () => 70,
     temperatureInC: () => 26,
-    windspeedInKmph: () => 52,
+    windspeedInKmph: () => 49,
 }
 
 
@@ -30,7 +30,7 @@ function report(sensor) {
 function testRainy() {
     const weatherReport = report(weatherSensorStub)
     console.log(weatherReport)
-    expect(weatherReport).includes('rain');
+    expect(weatherReport).includes('Alert: Stormy with heavy rain');
 }
 
 // Test another rainy day
@@ -40,7 +40,7 @@ function testHighPrecipitationAndLowWindspeed() {
     weatherReport = report(weatherSensorStub)
     // strengthen the assert to expose the bug
     // (function returns Sunny day, it should predict rain)
-    expect(weatherReport).is.not.empty;
+    expect(weatherReport).includes('Alert: Stormy with heavy rain');
 }
 
 testRainy();
