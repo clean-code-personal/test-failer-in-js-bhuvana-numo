@@ -9,8 +9,13 @@ const weatherSensorStub = {
     humidity: () => 72,
     precipitation: () => 70,
     temperatureInC: () => 26,
-    windspeedInKmph: () => 49,
+    windspeedInKmph: () => 52,
 }
+const LowWindRainyDayStub = {
+    temperatureInC: () => 28,
+    precipitation: () => 70, // High precipitation
+    windspeedInKmph: () => 40, // Low wind speed
+};
 
 
 function report(sensor) {
@@ -37,7 +42,8 @@ function testRainy() {
 function testHighPrecipitationAndLowWindspeed() {
     // This instance of stub needs to be different-
     // to give high precipitation (>60) and low wind-speed (<50)
-    weatherReport = report(weatherSensorStub)
+   
+    const weatherReport = report(LowWindRainyDayStub)
     // strengthen the assert to expose the bug
     // (function returns Sunny day, it should predict rain)
     expect(weatherReport).includes('Alert: Stormy with heavy rain');
