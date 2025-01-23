@@ -11,6 +11,12 @@ function print_color_map() {
     return majorColors.length * minorColors.length;
 }
 
+function computePairNumber(majorIndex,minorIndex){
+    return majorIndex * 5 + minorIndex
+}
+
 result = print_color_map();
-expect(result).equals(20);
+expect(result).equals(25);
+expect(computePairNumber(0,0)).equals(1)
+expect(computePairNumber(4,4)).equals(25)
 console.log('All is well (maybe!)');
