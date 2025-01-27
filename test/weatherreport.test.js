@@ -1,5 +1,18 @@
 const {expect}=require('chai');
-const {report,weatherSensorStub,LowWindRainyDayStub}=require('../src/weatherreport.js');
+const {report}=require('../src/weatherreport.js');
+
+const weatherSensorStub = {
+    humidity: () => 72,
+    precipitation: () => 70,
+    temperatureInC: () => 26,
+    windspeedInKmph: () => 52,
+}
+const LowWindRainyDayStub = {
+    temperatureInC: () => 28,
+    precipitation: () => 70, // High precipitation
+    windspeedInKmph: () => 40, // Low wind speed
+};
+
 
 describe('Weather Report Function',()=>{
 

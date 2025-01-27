@@ -5,18 +5,6 @@ const {expect} = require('chai');
 // test the other parts of this application in isolation
 // without needing the actual Sensor during development
 // Later, this can be replaced with the actual interface to the sensor.
-const weatherSensorStub = {
-    humidity: () => 72,
-    precipitation: () => 70,
-    temperatureInC: () => 26,
-    windspeedInKmph: () => 52,
-}
-const LowWindRainyDayStub = {
-    temperatureInC: () => 28,
-    precipitation: () => 70, // High precipitation
-    windspeedInKmph: () => 40, // Low wind speed
-};
-
 
 function report(sensor) {
     const precipitation = sensor.precipitation();
@@ -33,4 +21,4 @@ function report(sensor) {
 
 
 
-module.exports={report,weatherSensorStub,LowWindRainyDayStub}
+module.exports={report}
