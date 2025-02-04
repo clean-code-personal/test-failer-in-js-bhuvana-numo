@@ -12,7 +12,7 @@ function print_color_map() {
 }
 
 function computePairNumber(majorIndex,minorIndex){
-    return majorIndex * 5 + minorIndex;
+    return ((majorIndex * 5 + minorIndex)+1);
 }
 
 module.exports={print_color_map,computePairNumber};

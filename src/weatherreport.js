@@ -12,10 +12,20 @@ function report(sensor) {
     if (sensor.temperatureInC() > 25) {
         if (precipitation > 20 && precipitation < 60) {
             reportOut = 'Partly cloudy'
-        } else if (sensor.windspeedInKmph() > 50) {
+        }
+        else if (precipitation > 60) {
+            
+        if (sensor.windspeedInKmph()<50)
+        {
             reportOut = 'Alert: Stormy with heavy rain';
         }
-    }
+         
+        
+        if (sensor.windspeedInKmph() > 50) {
+            reportOut = 'Alert: Stormy with heavy rain';
+        }
+    
+    }}
     return reportOut
 }
 
