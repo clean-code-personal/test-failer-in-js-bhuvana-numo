@@ -8,27 +8,14 @@ const {expect} = require('chai');
 
 function report(sensor) {
     const precipitation = sensor.precipitation();
-    let reportOut = 'Sunny day';
-    if (sensor.temperatureInC() > 25) {
-        if (precipitation > 20 && precipitation < 60) {
-            reportOut = 'Partly cloudy'
-        }
-        else if (precipitation > 60) {
-            
-        if (sensor.windspeedInKmph()<50)
-        {
-            reportOut = 'Alert: Stormy with heavy rain';
-        }
-         
-        
-        if (sensor.windspeedInKmph() > 50) {
-            reportOut = 'Alert: Stormy with heavy rain';
-        }
-    
-    }}
-    return reportOut
+    const temperature = sensor.temperatureInC();
+    const windspeed = sensor.windspeedInKmph();
+
+    if (temperature <= 25) return 'Sunny day';
+    if (precipitation > 20 && precipitation < 60) return 'Partly cloudy';
+    if (precipitation > 60 && windspeed >= 0) return 'Alert: Stormy with heavy rain';
+
+    return 'Sunny day';
 }
 
-
-
-module.exports={report}
+module.exports = { report };
